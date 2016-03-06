@@ -1,0 +1,18 @@
+ClientHandler; handles the connection between a client and the server. 
+It contains the IP-address, port-number and connection-request-bit and is listening for clients as long as it is activated.
+
+ThreadedTCPServer; is present so that each client connected will be run as an individual thread. 
+It is also the main method when executing the server, thus initiating the servers attributes.
+
+Client; is the clients main process and contains all user functionality. 
+It is responsible for initiating a connection with an active server and obtains all necessary 
+information from the machine and the user to establish a TCP connection. 
+The client includes the user interface.
+
+MessageParser; is responsible of encapsulating the whole message segment with necessary informatin. 
+It generates the message and checks for faults during a message construction. 
+The parser uses client input to generate the message and attaches a message header with necessary segment information, 
+like a timestamp and user identification etc.
+
+MessageReciever; inherits Thread, something which is necessary to make the MessageReceiver start a new thread.
+It allows the chat client to both send and receive messages at the same time.
